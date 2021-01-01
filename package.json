@@ -4,5 +4,14 @@
   "main": "index.js",
   "repository": "git@github.com:yuchanggithub/js-commpents.git",
   "author": "yuchangchang <yuchangchang@batchsight.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "dev": "webpack"
+  },
+  "devDependencies": {
+    "ts-loader": "^8.0.13",
+    "typescript": "^4.1.3",
+    "webpack": "^5.11.1",
+    "webpack-cli": "^4.3.1"
+  }
 }

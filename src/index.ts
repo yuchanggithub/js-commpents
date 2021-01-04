@@ -1,5 +1,5 @@
-import JsSwitch from './js-switch';
-import './style/js-switch.scss';
+import JsSwitch from './modules/switch/switch';
+import JsSlider from './modules/slider/slider';
 
 window.onload = function () {
     new JsSwitch({
@@ -8,6 +8,13 @@ window.onload = function () {
         defaultChecked: false,
         onChange: function (checked) {
             console.log(checked);
+        }
+    })
+
+    new JsSlider({
+        elem: document.getElementById('root2'),
+        onChange: function (val) {
+            console.log(val);
         }
     })
 }

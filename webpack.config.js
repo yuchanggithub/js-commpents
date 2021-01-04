@@ -6,7 +6,7 @@ const path = require('path');
  * @type {Configuration}
  */
 const config = {
-    mode: 'none',
+    mode: 'development',
     module: {
         rules: [
             {

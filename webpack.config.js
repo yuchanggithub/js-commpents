@@ -1,4 +1,5 @@
 // import { Configuration } from 'webpack';
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 /**
@@ -6,26 +7,32 @@ const path = require('path');
  */
 const config = {
     mode: 'none',
-    entry: {
-        'index': './src/index.ts',
-    },
-    output: {
-        filename: '[name].js',
-        path: path.resolve(__dirname, 'dist/')
-    },
     module: {
         rules: [
             {
                 test: /\.ts$/,
                 exclude: /node_modules/,
                 use: ['ts-loader']
+            },
+            {
+                test: /\.scss$/,
+                use: ['style-loader', 'css-loader', 'sass-loader']
             }
         ]
     },
     resolve: {
         extensions: ['.js', '.ts']
     },
-    plugins: []
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, './src/index.html')
+        })
+    ],
+    devServer: {
+        contentBase: path.resolve(__dirname, './dist'),
+        port: 9000,
+        open: true
+    }
 }
 
 module.exports = config;

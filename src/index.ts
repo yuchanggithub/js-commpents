@@ -1,6 +1,9 @@
 import JsSwitch from './modules/switch/switch';
 import JsSlider from './modules/slider/slider';
 
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.js';
+
 window.onload = function () {
     new JsSwitch({
         elem: document.getElementById('root'),

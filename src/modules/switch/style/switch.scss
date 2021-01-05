@@ -1,4 +1,4 @@
-.js-switch {
+.ibcp-switch {
     margin: 0;
     padding: 0;
     color: rgba(0, 0, 0, 0.85);
@@ -21,32 +21,32 @@
     user-select: none;
     outline: none;
 
-    &.js-switch-checked {
+    &.ibcp-switch-checked {
         background-color: #00968f;
 
-        .js-switch-handle {
+        .ibcp-switch-handle {
             left: calc(100% - 20px);
         }
 
-        .js-switch-inner {
+        .ibcp-switch-inner {
             margin: 0 25px 0 7px;
         }
     }
 
-    .js-switch-handle,
-    .js-switch-handle::before {
+    .ibcp-switch-handle,
+    .ibcp-switch-handle::before {
         position: absolute;
         transition: all 0.2s ease-in-out;
     }
 
-    .js-switch-handle {
+    .ibcp-switch-handle {
         top: 2px;
         left: 2px;
         width: 18px;
         height: 18px;
     }
 
-    .js-switch-handle::before {
+    .ibcp-switch-handle::before {
         top: 0;
         right: 0;
         bottom: 0;
@@ -57,14 +57,14 @@
         content: "";
     }
 
-    .js-switch-inner {
+    .ibcp-switch-inner {
         display: block;
         margin: 0 7px 0 25px;
         color: #fff;
         transition: margin 0.2s;
     }
 
-    &.js-switch-disabled {
+    &.ibcp-switch-disabled {
         cursor: not-allowed;
         opacity: 0.4;
         background-color: none;

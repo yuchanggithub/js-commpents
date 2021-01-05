@@ -13,6 +13,7 @@ window.onload = function () {
 
     new JsSlider({
         elem: document.getElementById('root2'),
+        defaultValue: 28,
         onChange: function (val) {
             console.log(val);
         }

@@ -1,9 +1,8 @@
 
-type onChangeCB = (checked: boolean) => any;
 import './style/switch.scss';
-
 import { strToDom } from '../../public/utils';
 
+type onChangeCB = (checked: boolean) => any;
 interface JsSwitchParamInterface {
     elem: HTMLElement;
     disabled?: boolean;
@@ -17,9 +16,9 @@ export default class JsSwitch {
 
     private onchangeCB: onChangeCB;
 
-    private htmlStr = `<button type="button" class="js-switch">
-                        <div class="js-switch-handle"></div>
-                        <span class="js-switch-inner"></span>
+    private htmlStr = `<button type="button" class="ibcp-switch">
+                        <div class="ibcp-switch-handle"></div>
+                        <span class="ibcp-switch-inner"></span>
                     </button>`;
 
     constructor(param: JsSwitchParamInterface) {
@@ -48,26 +47,26 @@ export default class JsSwitch {
 
     public set checked(value: boolean) {
         if (value) {
-            this.swtichDom.classList.add('js-switch-checked');
+            this.swtichDom.classList.add('ibcp-switch-checked');
         } else {
-            this.swtichDom.classList.remove('js-switch-checked');
+            this.swtichDom.classList.remove('ibcp-switch-checked');
         }
     }
 
     public get checked(): boolean {
-        return this.swtichDom.classList.contains('js-switch-checked');
+        return this.swtichDom.classList.contains('ibcp-switch-checked');
     }
 
     public set disabled(value: boolean) {
         this.swtichDom.disabled = value;
         if (value) {
-            this.swtichDom.classList.add('js-switch-disabled');
+            this.swtichDom.classList.add('ibcp-switch-disabled');
         } else {
-            this.swtichDom.classList.remove('js-switch-disabled');
+            this.swtichDom.classList.remove('ibcp-switch-disabled');
         }
     }
 
     public get disabled(): boolean {
-        return this.swtichDom.classList.contains('js-switch-disabled');
+        return this.swtichDom.classList.contains('ibcp-switch-disabled');
     }
 }

@@ -1,15 +1,15 @@
-import { strToDom } from "../../public/utils";
 import './style/slider.scss';
+import { strToDom } from "../../public/utils";
 
 type onchangeCB = (value: number) => any;
 interface ParamInterface {
     elem: HTMLElement;
     defaultValue?: number;
-    onChange?: onchangeCB;
     disabled?: boolean;
+    onChange?: onchangeCB;
 }
 
-export default class JsSlider {
+export default class IBCPSlider {
     private elem: HTMLElement;
     private pageElem = {
         sliderDom: null as HTMLDivElement,
@@ -36,10 +36,10 @@ export default class JsSlider {
         this.initElem();
         this.elem = param.elem;
         this.defaultValue = param.defaultValue || 0;
-        this.onchangeCB = param.onChange;
         this.disabled = param.disabled;
+        this.value = this.defaultValue;
+        this.onchangeCB = param.onChange;
         this.initEvent(this.disabled);
-        this.setValue(this.defaultValue);
         this.elem.appendChild(this.pageElem.sliderDom);
     }
 
@@ -53,12 +53,6 @@ export default class JsSlider {
         }
     }
 
-    private setValue(num: number) {
-        let numRate = num + '%';
-        this.pageElem.point.style.left = numRate; this.pageElem.line.style.width = numRate;
-        this.pageElem.point.setAttribute('aria-valuenow', num.toString());
-    }
-
     private move(left: number) {
         let oldNum = Number(this.pageElem.point.getAttribute('aria-valuenow'));
         let sliderwidth = this.pageElem.sliderDom.offsetWidth;
@@ -70,7 +64,7 @@ export default class JsSlider {
         }
         let num = Math.round(left * 100 / sliderwidth);
         if (num !== oldNum) {
-            this.setValue(num);
+            this.value = num;
             this.onchangeCB && this.onchangeCB(num);
         }
     }
@@ -83,9 +77,9 @@ export default class JsSlider {
         } else {
             that.pageElem.point.onmousedown = function (e) {
                 let elemMove = <HTMLDivElement>document.createElement('div');
-                elemMove.className = 'ibcp-auxiliar-moving'; 
+                elemMove.className = 'ibcp-auxiliar-moving';
                 document.body.appendChild(elemMove);
-                let oldLeft = that.pageElem.point.offsetLeft; 
+                let oldLeft = that.pageElem.point.offsetLeft;
                 let oldX = e.clientX;
                 elemMove.onmousemove = function (e) {
                     let nowX = e.clientX;
@@ -103,14 +97,21 @@ export default class JsSlider {
         }
     }
 
-    public getValue() {
-        return this.pageElem.point.getAttribute('aria-valuenow');
-    }
-
     public onChange(callback: onchangeCB) {
         this.onchangeCB = function (value) {
             callback(value);
         }
+    }
+
+    public set value(num: number) {
+        let numRate = num + '%';
+        this.pageElem.point.style.left = numRate;
+        this.pageElem.line.style.width = numRate;
+        this.pageElem.point.setAttribute('aria-valuenow', num.toString());
+    }
+
+    public get value(): number {
+        return Number(this.pageElem.point.getAttribute('aria-valuenow'));
     }
 
     public set disabled(disabled: boolean) {

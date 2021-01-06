@@ -1,24 +1,26 @@
-import JsSwitch from './modules/switch/switch';
-import JsSlider from './modules/slider/slider';
-
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.js';
+import NewJsSwitch from './modules/switch/new-switch';
+import NewJsSlider from './modules/slider/new-slider';
+import { JSDOM } from './core/Core';
 
 window.onload = function () {
-    new JsSwitch({
-        elem: document.getElementById('root'),
-        disabled: false,
-        defaultChecked: false,
-        onChange: function (checked) {
-            console.log(checked);
-        }
-    })
 
-    new JsSlider({
-        elem: document.getElementById('root2'),
-        defaultValue: 28,
-        onChange: function (val) {
-            console.log(val);
-        }
-    })
+    JSDOM.rander(
+        new NewJsSwitch({
+            disabled: false,
+            defaultChecked: false,
+            onChange: function (checked) {
+                console.log(checked);
+            }
+        }),
+        document.getElementById('root')
+    )
+
+    JSDOM.rander(
+        new NewJsSlider({
+            onChange: function (checked) {
+                console.log(checked);
+            }
+        }),
+        document.getElementById('root2')
+    )
 }

@@ -1,18 +1,29 @@
 // import { Configuration } from 'webpack';
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
-const webpack = require('webpack');
+// const webpack = require('webpack');
 
 /**
  * @type {Configuration}
  */
 const config = {
+    entry: {
+        main: path.resolve(__dirname, './src/index.ts'),
+        antd: path.resolve(__dirname, './src/antd-demo/index.tsx')
+    },
+    output: {
+        filename: '[name].js',
+        path: path.resolve(__dirname, './dist')
+    },
     mode: 'development',
     module: {
         rules: [
             {
                 test: /\.ts$/,
-                exclude: /node_modules/,
+                use: ['ts-loader']
+            },
+            {
+                test: /\.tsx$/,
                 use: ['ts-loader']
             },
             {
@@ -23,15 +34,6 @@ const config = {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader']
             },
-            // {
-            //     test: /\.(png)|(jpg)|(gif)|(woff)|(svg)|(eot)|(ttf)$/,
-            //     use: [
-            //         {
-            //             loader: "url-loader",
-            //             options: {}
-            //         }
-            //     ]
-            // },
             {
                 test: /\.(png)|(jpg)|(gif)|(woff)|(svg)|(eot)|(ttf)$/,
                 use: [
@@ -48,13 +50,20 @@ const config = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './src/index.html')
+            template: path.resolve(__dirname, './src/index.html'),
+            filename: 'index.html',
+            chunks: ['main']
         }),
-        new webpack.ProvidePlugin({
-            $: "jquery",
-            jQuery: "jquery",
-            "windows.jQuery": "jquery"
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, './src/antd-demo/index.html'),
+            filename: 'antd-demo.html',
+            chunks: ['antd']
         })
+        // new webpack.ProvidePlugin({
+        //     $: "jquery",
+        //     jQuery: "jquery",
+        //     "windows.jQuery": "jquery"
+        // })
     ],
     devServer: {
         contentBase: path.resolve(__dirname, './dist'),

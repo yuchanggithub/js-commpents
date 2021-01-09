@@ -19,11 +19,7 @@ const config = {
     module: {
         rules: [
             {
-                test: /\.ts$/,
-                use: ['ts-loader']
-            },
-            {
-                test: /\.tsx$/,
+                test: /\.(ts|tsx)$/,
                 use: ['ts-loader']
             },
             {
@@ -51,12 +47,12 @@ const config = {
     plugins: [
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/index.html'),
-            filename: 'index.html',
+            filename: 'index1.html',
             chunks: ['main']
         }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/antd-demo/index.html'),
-            filename: 'antd-demo.html',
+            filename: 'index.html',
             chunks: ['antd']
         })
         // new webpack.ProvidePlugin({

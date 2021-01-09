@@ -1,8 +1,12 @@
 import NewJsSwitch from './modules/switch/new-switch';
 import NewJsSlider from './modules/slider/new-slider';
 import { JSDOM } from './core/Core';
+import moment from 'moment';
 
 window.onload = function () {
+    moment.locale('zh-cn');
+    let now = moment().format('LLLL');
+    console.log(now);
 
     JSDOM.rander(
         new NewJsSwitch({
@@ -23,4 +27,5 @@ window.onload = function () {
         }),
         document.getElementById('root2')
     )
+
 }

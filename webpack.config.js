@@ -16,6 +16,7 @@ const config = {
         path: path.resolve(__dirname, './dist')
     },
     mode: 'development',
+    devtool: 'cheap-module-source-map',
     module: {
         rules: [
             {
@@ -53,19 +54,25 @@ const config = {
     plugins: [
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/index.html'),
-            filename: 'index1.html',
+            filename: 'index.html',
             chunks: ['main']
         }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/antd-demo/index.html'),
-            filename: 'index.html',
+            filename: 'index1.html',
             chunks: ['antd']
         })
     ],
     devServer: {
         contentBase: path.resolve(__dirname, './dist'),
         port: 9000,
-        open: true
+        open: true,
+        proxy: {
+            '/api': {
+                target: 'http://localhost:5000',
+                pathRewrite: { '^/api': '' }
+            }
+        }
     }
 }
 

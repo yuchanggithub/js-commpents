@@ -20,7 +20,18 @@ const config = {
         rules: [
             {
                 test: /\.(ts|tsx)$/,
-                use: ['ts-loader']
+                exclude: /(node_modules)/,
+                use: [{
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [
+                            '@babel/preset-env',
+                            '@babel/preset-react',
+                            '@babel/preset-typescript'
+                        ],
+                        plugins: ['transform-class-properties']
+                    }
+                }]
             },
             {
                 test: /\.scss$/,
@@ -32,12 +43,7 @@ const config = {
             },
             {
                 test: /\.(png)|(jpg)|(gif)|(woff)|(svg)|(eot)|(ttf)$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {}
-                    }
-                ]
+                use: ['file-loader']
             }
         ]
     },
@@ -55,11 +61,6 @@ const config = {
             filename: 'index.html',
             chunks: ['antd']
         })
-        // new webpack.ProvidePlugin({
-        //     $: "jquery",
-        //     jQuery: "jquery",
-        //     "windows.jQuery": "jquery"
-        // })
     ],
     devServer: {
         contentBase: path.resolve(__dirname, './dist'),

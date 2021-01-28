@@ -1,7 +1,7 @@
 // import { Configuration } from 'webpack';
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
-// const webpack = require('webpack');
+const Webpack = require('webpack');
 
 /**
  * @type {Configuration}
@@ -61,6 +61,10 @@ const config = {
             template: path.resolve(__dirname, './src/antd-demo/index.html'),
             filename: 'index1.html',
             chunks: ['antd']
+        }),
+        new Webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
         })
     ],
     devServer: {

@@ -1,6 +1,6 @@
-import NewJsSwitch from './modules/switch/new-switch';
-import NewJsSlider from './modules/slider/new-slider';
-import { JSDOM } from './core/Core';
+import NewJsSwitch from '../modules/switch/new-switch';
+import NewJsSlider from '../modules/slider/new-slider';
+import { JSDOM } from '../core/Core';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';

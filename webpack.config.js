@@ -8,8 +8,10 @@ const Webpack = require('webpack');
  */
 const config = {
     entry: {
-        main: path.resolve(__dirname, './src/index.ts'),
-        antd: path.resolve(__dirname, './src/antd-demo/index.tsx')
+        axios: path.resolve(__dirname, './src/axios-demo/index.ts'),
+        antd: path.resolve(__dirname, './src/antd-demo/index.tsx'),
+        vue: path.resolve(__dirname, './src/vue-demo/index.ts'),
+        jstree: path.resolve(__dirname, './src/jstree-demo/index.ts')
     },
     output: {
         filename: '[name].js',
@@ -49,18 +51,31 @@ const config = {
         ]
     },
     resolve: {
-        extensions: ['.js', '.ts']
+        extensions: ['.js', '.ts'],
+        alias: {
+            'vue$': 'vue/dist/vue.esm.js'
+        }
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './src/index.html'),
-            filename: 'index.html',
-            chunks: ['main']
+            template: path.resolve(__dirname, './src/axios-demo/index.html'),
+            filename: 'index2.html',
+            chunks: ['axios']
         }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/antd-demo/index.html'),
-            filename: 'index1.html',
+            filename: 'index3.html',
             chunks: ['antd']
+        }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, './src/vue-demo/index.html'),
+            filename: 'index4.html',
+            chunks: ['vue']
+        }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, './src/jstree-demo/index.html'),
+            filename: 'index.html',
+            chunks: ['jstree']
         }),
         new Webpack.ProvidePlugin({
             $: "jquery",

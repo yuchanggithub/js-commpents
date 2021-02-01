@@ -1,26 +1,8 @@
-import 'jstree';
-import 'jstree/dist/themes/default/style.css';
+import './index.scss';
 
 $(function () {
-    initJstree();
     initTest();
 });
-
-function initJstree() {
-    $('#jstree_demo_div').jstree({
-        'core': {
-            'data': [
-                {
-                    "text": "Root node",
-                    "children": [
-                        { "text": "Child node 1" },
-                        { "text": "Child node 2" }
-                    ]
-                }
-            ]
-        }
-    });
-}
 
 let data = {
     // 批指令id
@@ -50,7 +32,7 @@ let data = {
 function initTest() {
     let tree = <HTMLUListElement>document.getElementById('tree_div');
     $('.show-icon').on('click', function () {
-        $(this).siblings('ul').toggle();
-        $(this).toggleClass(['fa-plus-circle', 'fa-minus-circle']);
+        $(this).siblings('.hor-line').toggle().siblings('ul').toggle();
+        $(this).toggleClass(['fa-plus-square-o', 'fa-minus-square-o']);
     })
 }

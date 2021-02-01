@@ -1,0 +1,43 @@
+ul {
+    padding: 0;
+    margin: 0;
+    float: left;
+}
+
+li {
+    margin-bottom: 20px;
+    list-style: none;
+    display: block;
+    overflow: hidden;
+}
+
+li::before {
+    content: '';
+    clear: both;
+}
+
+.show-text {
+    float: left;
+    border: 1px solid green;
+}
+
+.show-icon {
+    float: left;
+}
+
+.hor-line {
+    border-top: 1px solid #000;
+    border-right: 1px solid #000;
+    float: left;
+    margin-top: 34px;
+    width: 50px;
+    height: calc(100% - 68px);
+}
+
+.ver-line {
+    float: left;
+    margin-top: 34px;
+    width: 50px;
+    border-top: 1px solid #000;
+    margin-right: 10px;
+}

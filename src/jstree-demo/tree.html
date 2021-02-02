@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .node {
+            display: flex;
+        }
+        .list {
+            display: flex;
+            flex-direction: column;
+        }
+        .tree-text {
+            height: 40px;
+            width: 40px;
+            background-color: red;
+            margin-top: 10px;
+        }
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        li:last-of-type>.ver-line {
+            display: none;
+        }
+        .hor-line {
+            margin-top: 30px;
+            height: 1px;
+            background-color: orange;
+            width: 40px;
+        }
+        .ver-line {
+            transform: translateY(30px);
+            background-color: orange;
+            width: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="node">
+        <div class="tree-text"></div>
+        <div class="hor-line"></div>
+        <ul class="list">
+            <li class="node">
+                <div class="ver-line"></div>
+                <div class="hor-line"></div>
+                <div class="tree-text"></div>
+                <div class="hor-line"></div>
+                <ul class="list">
+                    <li class="node">
+                        <div class="ver-line"></div>
+                        <div class="hor-line"></div>
+                        <div class="tree-text"></div>
+                        <div class="hor-line"></div>
+                    </li>
+                    <li class="node">
+                        <div class="ver-line"></div>
+                        <div class="hor-line"></div>
+                        <div class="tree-text"></div>
+                        <div class="hor-line"></div>
+                    </li>
+                </ul>
+            </li>
+            <li class="node">
+                <div class="ver-line"></div>
+                <div class="hor-line"></div>
+                <div class="tree-text"></div>
+                <div class="hor-line"></div>
+                <ul class="list">
+                    <li class="node">
+                        <div class="ver-line"></div>
+                        <div class="hor-line"></div>
+                        <div class="tree-text"></div>
+                        <div class="hor-line"></div>
+                    </li>
+                    <li class="node">
+                        <div class="ver-line"></div>
+                        <div class="hor-line"></div>
+                        <div class="tree-text"></div>
+                        <div class="hor-line"></div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

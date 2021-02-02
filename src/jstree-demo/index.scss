@@ -1,43 +1,88 @@
-ul {
-    padding: 0;
-    margin: 0;
-    float: left;
-}
+$boxWidth: 134px;
+$boxHeight: 83px;
+$lineColor: #aaa;
+$boxLineColor: #008d8d;
 
-li {
-    margin-bottom: 20px;
+.ibcp-display-tree-list {
     list-style: none;
-    display: block;
-    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
 }
 
-li::before {
-    content: '';
-    clear: both;
+.ibcp-display-tree-node {
+    display: flex;
+    width: fit-content;
+    
+    .ibcp-display-tree-show-icon {
+        position: absolute;
+        top: 0;
+        right: -15px;
+        color: $boxLineColor;
+    }
+    
+    .ibcp-display-tree-show-text {
+        height: $boxHeight;
+        width: $boxWidth;
+        border: 1px solid $boxLineColor;
+        margin-bottom: 20px;
+        position: relative;
+        font-size: 14px;
+        padding: 5px;
+        display: flex;
+    
+        .ibcp-display-tree-show-row {
+            flex: 1;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            word-break: break-all;
+            line-height: 2;
+    
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        .ibcp-display-tree-show-col-left {
+            display: inline-block;
+            flex-direction: column;
+            width: 55%;
+        }
+    
+        .ibcp-display-tree-show-col-right {
+            display: inline-block;
+            flex-direction: column;
+            width: 45%;
+        }    
+    
+        .ibcp-display-tree-link-to {
+            text-decoration: underline;
+            color: #4096d6;
+            cursor: pointer;
+        }
+    }
+    
+    .ibcp-display-tree-ver-line {
+        transform: translateY($boxHeight / 2);
+        background-color: $lineColor;
+        width: 1px;
+    }
+    
+    .ibcp-display-tree-hor-line {
+        margin-top: $boxHeight / 2;
+        height: 1px;
+        background-color: $lineColor;
+        width: 40px;
+    }
+    
+    .ibcp-display-tree-hor-line-left {
+        margin-left: 10px;
+    }
+    
+    .ibcp-display-tree-hor-line-right {
+        margin-right: 10px;
+    }
 }
 
-.show-text {
-    float: left;
-    border: 1px solid green;
-}
-
-.show-icon {
-    float: left;
-}
-
-.hor-line {
-    border-top: 1px solid #000;
-    border-right: 1px solid #000;
-    float: left;
-    margin-top: 34px;
-    width: 50px;
-    height: calc(100% - 68px);
-}
-
-.ver-line {
-    float: left;
-    margin-top: 34px;
-    width: 50px;
-    border-top: 1px solid #000;
-    margin-right: 10px;
-}

@@ -84,5 +84,11 @@ $boxLineColor: #008d8d;
     .ibcp-display-tree-hor-line-right {
         margin-right: 10px;
     }
+
+    &.moveing {
+        .ibcp-display-tree-show-text {
+            user-select: none;
+        }
+    }
 }
 

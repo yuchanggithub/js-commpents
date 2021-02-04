@@ -1696,6 +1696,11 @@ boolbase@~1.0.0:
   resolved "https://registry.npm.taobao.org/boolbase/download/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
 
+bootstrap-table@^1.18.2:
+  version "1.18.2"
+  resolved "https://registry.npm.taobao.org/bootstrap-table/download/bootstrap-table-1.18.2.tgz#5b65fabe9d1462db193e9c844965da00aef5806c"
+  integrity sha1-W2X6vp0UYtsZPpyESWXaAK71gGw=
+
 bootstrap@3:
   version "3.4.1"
   resolved "https://registry.npm.taobao.org/bootstrap/download/bootstrap-3.4.1.tgz#c3a347d419e289ad11f4033e3c4132b87c081d72"

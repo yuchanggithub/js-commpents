@@ -11,7 +11,8 @@ const config = {
         axios: path.resolve(__dirname, './src/axios-demo/index.ts'),
         antd: path.resolve(__dirname, './src/antd-demo/index.tsx'),
         vue: path.resolve(__dirname, './src/vue-demo/index.ts'),
-        jstree: path.resolve(__dirname, './src/jstree-demo/index.ts')
+        jstree: path.resolve(__dirname, './src/jstree-demo/index.ts'),
+        bstable: path.resolve(__dirname, './src/bootstrap-table-demo/index.ts'),
     },
     output: {
         filename: '[name].js',
@@ -74,8 +75,13 @@ const config = {
         }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/jstree-demo/index.html'),
-            filename: 'index.html',
+            filename: 'index1.html',
             chunks: ['jstree']
+        }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, './src/bootstrap-table-demo/index.html'),
+            filename: 'index.html',
+            chunks: ['bstable']
         }),
         new Webpack.ProvidePlugin({
             $: "jquery",

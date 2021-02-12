@@ -1,11 +1,17 @@
-import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap-table';
 import 'bootstrap-table/src/bootstrap-table.scss';
+import 'bootstrap-table';
+import 'bootstrap-table/dist/extensions/fixed-columns/bootstrap-table-fixed-columns.css';
+import 'bootstrap-table/dist/extensions/fixed-columns/bootstrap-table-fixed-columns';
+import 'font-awesome/css/font-awesome.css';
 
+// @ts-ignore
 $('#table').bootstrapTable({
     height: 300,
     columns: [
+        {
+            radio: true
+        },
         {
             field: 'id',
             title: 'ID',
@@ -86,10 +92,24 @@ $('#table').bootstrapTable({
             title: '姓名',
         },
         {
-            field: 'name',
-            title: '姓名',
+            field: 'opt',
+            title: '操作',
+            align: 'center',
+            formatter: function () {
+                return '<span class="fa fa-plus icon"></span> ' + 
+                '<span class="fa fa-minus icon" style="color: red"></span>'
+            },
+            events: {
+                'click .icon': function (e, value, row, index) {
+                    alert(JSON.stringify(row));
+                }
+            }
         }
-    ]
+    ],
+    clickToSelect: true,
+    fixedColumns: true,
+    fixedNumber: 1,
+    fixedRightNumber: 1
 });
 
 setTimeout(function () {

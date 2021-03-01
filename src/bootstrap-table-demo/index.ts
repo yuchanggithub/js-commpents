@@ -109,30 +109,35 @@ $('#table').bootstrapTable({
     clickToSelect: true,
     fixedColumns: true,
     fixedNumber: 1,
-    fixedRightNumber: 1
+    fixedRightNumber: 1,
+    url: '/api/table-data/'
 });
 
-setTimeout(function () {
-    $('#table').bootstrapTable('load', [
-        {
-            id: 1,
-            name: 'ycc' 
-        },
-        {
-            id: 2,
-            name: 'yu'
-        },
-        {
-            id: 2,
-            name: 'yu'
-        },
-        {
-            id: 2,
-            name: 'yu'
-        },
-        {
-            id: 2,
-            name: 'yu'
-        },
-    ])
-}, 1000)
+let btn = document.getElementById('reload_btn');
+btn.onclick = function () {
+    $('#table').bootstrapTable('refreshOptions', {});
+}
+// setTimeout(function () {
+//     $('#table').bootstrapTable('load', [
+//         {
+//             id: 1,
+//             name: 'ycc' 
+//         },
+//         {
+//             id: 2,
+//             name: 'yu'
+//         },
+//         {
+//             id: 2,
+//             name: 'yu'
+//         },
+//         {
+//             id: 2,
+//             name: 'yu'
+//         },
+//         {
+//             id: 2,
+//             name: 'yu'
+//         },
+//     ])
+// }, 1000)

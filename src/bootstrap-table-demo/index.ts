@@ -4,6 +4,9 @@ import 'bootstrap-table';
 import 'bootstrap-table/dist/extensions/fixed-columns/bootstrap-table-fixed-columns.css';
 import 'bootstrap-table/dist/extensions/fixed-columns/bootstrap-table-fixed-columns';
 import 'font-awesome/css/font-awesome.css';
+import htmlStr from './1.html';
+
+console.log(htmlStr);
 
 // @ts-ignore
 $('#table').bootstrapTable({
@@ -100,7 +103,7 @@ $('#table').bootstrapTable({
                 '<span class="fa fa-minus icon" style="color: red"></span>'
             },
             events: {
-                'click .icon': function (e, value, row, index) {
+                'click .icon': function (_e, _value, row) {
                     alert(JSON.stringify(row));
                 }
             }
@@ -114,7 +117,7 @@ $('#table').bootstrapTable({
 });
 
 let btn = document.getElementById('reload_btn');
-btn.onclick = function () {
+btn.onclick = () => {
     $('#table').bootstrapTable('refreshOptions', {});
 }
 // setTimeout(function () {

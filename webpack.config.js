@@ -38,6 +38,10 @@ const config = {
             {
                 test: /\.(png)|(jpg)|(gif)|(woff)|(svg)|(eot)|(ttf)$/,
                 use: ['file-loader']
+            }, 
+            {
+                test: /\.html$/,
+                use: ['html-loader']
             }
         ]
     },

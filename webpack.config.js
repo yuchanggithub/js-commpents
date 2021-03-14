@@ -13,6 +13,7 @@ const config = {
         vue: path.resolve(__dirname, './src/vue-demo/index.ts'),
         jstree: path.resolve(__dirname, './src/jstree-demo/index.ts'),
         bstable: path.resolve(__dirname, './src/bootstrap-table-demo/index.ts'),
+        layer: path.resolve(__dirname, './src/layer-demo/index.ts')
     },
     output: {
         filename: '[name].js',
@@ -74,8 +75,13 @@ const config = {
         }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/bootstrap-table-demo/index.html'),
-            filename: 'index.html',
+            filename: 'index5.html',
             chunks: ['bstable']
+        }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, './src/layer-demo/index.html'),
+            filename: 'index.html',
+            chunks: ['layer']
         }),
         new Webpack.ProvidePlugin({
             $: "jquery",

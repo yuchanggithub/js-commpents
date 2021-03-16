@@ -4,7 +4,10 @@ import 'bootstrap-table';
 import 'bootstrap-table/dist/extensions/fixed-columns/bootstrap-table-fixed-columns.css';
 import 'bootstrap-table/dist/extensions/fixed-columns/bootstrap-table-fixed-columns';
 import 'font-awesome/css/font-awesome.css';
+// @ts-ignore
 import htmlStr from './1.html';
+import {aaaa, bbbb} from './tree-shaking';
+aaaa();
 
 console.log(htmlStr);
 

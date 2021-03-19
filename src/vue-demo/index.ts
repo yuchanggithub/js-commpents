@@ -62,17 +62,62 @@ window.onload = function () {
 
     // 定义名为 todo-item 的新组件
     Vue.component('todo-item', {
-        template: '<li>{{ todo.text }}</li>',
-        props: ['todo']
+        template: '<li>{{ todo.text }} ---- {{ msg }}</li>',
+        props: ['todo'],
+        data() {
+            return {
+                msg: '1'
+            }
+        }
     })
+
     let app7 = new Vue({
         el: '#app-7',
         data: {
             groceryList: [
                 { id: 0, text: '蔬菜' },
                 { id: 1, text: '奶酪' },
-                { id: 2, text: '随便其它什么人吃的东西' }
+                { id: 2, text: '随便其它什么人吃的东西' },
+                { id: 3, text: '牛奶' }
             ]
         }
     });
+
+    // 生命周期函数
+    let app8 = new Vue({
+        el: '#app-8',
+        data: {
+            msg: '0'
+        },
+        beforeCreate() {
+            console.log('beforeCreate 开始初始化 data:' + this.$data);
+        },
+        created() {
+            console.log('created 初始化 msg:' + this.msg);
+        },
+        beforeMount() {
+            console.log('beforeMount 挂载前');
+        },
+        mounted() {
+            console.log('mounted 挂载后 ');
+            console.log(this.$el);
+            setTimeout(() => {
+                this.msg = '2'
+            }, 2000)
+        },
+        beforeUpdate() {
+            console.log('更新前 msg :' + this.msg);
+            console.log(this.$el.innerHTML);
+        },
+        updated() {
+            console.log('更新后 msg: ' + this.msg);
+            console.log(this.$el.innerHTML);
+        },
+        beforeDestroy() {
+
+        },
+        destroyed() {
+
+        }
+    })
 }

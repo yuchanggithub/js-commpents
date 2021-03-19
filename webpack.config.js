@@ -20,8 +20,8 @@ const config = {
         filename: '[name].js',
         path: path.resolve(__dirname, './dist')
     },
-    mode: 'none',
-    // devtool: 'cheap-module-source-map',
+    mode: 'development',
+    devtool: 'cheap-module-source-map',
     module: {
         rules: [
             {
@@ -67,7 +67,7 @@ const config = {
         }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/vue-demo/index.html'),
-            filename: 'vue.html',
+            filename: 'index.html',
             chunks: ['vue']
         }),
         new HtmlWebpackPlugin({
@@ -77,7 +77,7 @@ const config = {
         }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/bootstrap-table-demo/index.html'),
-            filename: 'index.html',
+            filename: 'bstable.html',
             chunks: ['bstable']
         }),
         new HtmlWebpackPlugin({
@@ -100,10 +100,6 @@ const config = {
                 pathRewrite: { '^/api': '' }
             }
         }
-    },
-    optimization: {
-        usedExports: true,
-        minimize: false
     }
 }
 

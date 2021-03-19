@@ -14,7 +14,7 @@
     </div>
 
     <div id="app-2">
-        <span v-bind:title="message">
+        <span :title="message">
             鼠标悬停几秒钟查看此处动态绑定的提示信息！
         </span>
     </div>
@@ -33,7 +33,7 @@
 
     <div id="app-5">
         <p>{{ message }}</p>
-        <button v-on:click="reverseMessage">反转消息</button>
+        <button @click="reverseMessage">反转消息</button>
     </div>
 
     <div id="app-6">
@@ -46,13 +46,15 @@
             <!-- 创建一个 todo-item 组件的实例 -->
             <todo-item
                 v-for="item in groceryList"
-                v-bind:todo="item"
-                v-bind:key="item.id"
+                :todo="item"
+                :key="item.id"
             ></todo-item>
         </ol>
     </div>
 
-
+    <div id="app-8">
+        {{ msg }}
+    </div>
 </body>
 
 </html>

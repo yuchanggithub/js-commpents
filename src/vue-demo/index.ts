@@ -1,6 +1,19 @@
 import Vue from 'vue';
 
+import tinymce from 'tinymce';
+
 window.onload = function () {
+
+    tinymce.init({
+        selector: '#tinydemo', //容器，可使用css选择器
+        language:'zh_CN', //调用放在langs文件夹内的语言包
+        toolbar: false, //隐藏工具栏
+        menubar: false, //隐藏菜单栏
+        inline: true, //开启内联模式
+        plugins: [ 'quickbars','link','table' ], //选择需加载的插件
+        //选中时出现的快捷工具，与插件有依赖关系
+        quickbars_selection_toolbar: 'bold italic forecolor | link blockquote quickimage',
+    });
 
     // 声明式渲染
     let app = new Vue({

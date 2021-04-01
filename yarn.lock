@@ -5861,8 +5861,8 @@ rc-virtual-list@^3.0.1, rc-virtual-list@^3.2.0:
 
 react-dom@^17.0.1:
   version "17.0.1"
-  resolved "https://registry.npmjs.org/react-dom/-/react-dom-17.0.1.tgz#1de2560474ec9f0e334285662ede52dbc5426fc6"
-  integrity sha512-6eV150oJZ9U2t9svnsspTMrWNyHc6chX0KzDeAOXftRa8bNeOKTTfCJ7KorIwenkHd2xqVTBTCZd79yk/lx/Ug==
+  resolved "https://registry.npm.taobao.org/react-dom/download/react-dom-17.0.1.tgz?cache=0&sync_timestamp=1616171380916&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact-dom%2Fdownload%2Freact-dom-17.0.1.tgz#1de2560474ec9f0e334285662ede52dbc5426fc6"
+  integrity sha1-HeJWBHTsnw4zQoVmLt5S28VCb8Y=
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -5875,8 +5875,8 @@ react-is@^16.12.0, react-is@^16.7.0:
 
 react@^17.0.1:
   version "17.0.1"
-  resolved "https://registry.npmjs.org/react/-/react-17.0.1.tgz#6e0600416bd57574e3f86d92edba3d9008726127"
-  integrity sha512-lG9c9UuMHdcAexXtigOZLX8exLWkW0Ku29qPRU8uhF2R9BN96dLCt0psvzPLlHc5OWkgymP3qwTRgbnw5BKx3w==
+  resolved "https://registry.npm.taobao.org/react/download/react-17.0.1.tgz#6e0600416bd57574e3f86d92edba3d9008726127"
+  integrity sha1-bgYAQWvVdXTj+G2S7bo9kAhyYSc=
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -6903,6 +6903,11 @@ thunky@^1.0.2:
   version "1.1.0"
   resolved "https://registry.npm.taobao.org/thunky/download/thunky-1.1.0.tgz#5abaf714a9405db0504732bbccd2cedd9ef9537d"
   integrity sha1-Wrr3FKlAXbBQRzK7zNLO3Z75U30=
+
+tinymce@^5.7.1:
+  version "5.7.1"
+  resolved "https://registry.npm.taobao.org/tinymce/download/tinymce-5.7.1.tgz?cache=0&sync_timestamp=1615946363291&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftinymce%2Fdownload%2Ftinymce-5.7.1.tgz#658a6fb4c7d53a8496cc00f8da33f4b8290da06d"
+  integrity sha1-ZYpvtMfVOoSWzAD42jP0uCkNoG0=
 
 to-fast-properties@^2.0.0:
   version "2.0.0"

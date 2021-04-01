@@ -14,7 +14,8 @@ const config = {
         vue: path.resolve(__dirname, './src/vue-demo/index.ts'),
         jstree: path.resolve(__dirname, './src/jstree-demo/index.ts'),
         bstable: path.resolve(__dirname, './src/bootstrap-table-demo/index.ts'),
-        layer: path.resolve(__dirname, './src/layer-demo/index.ts')
+        layer: path.resolve(__dirname, './src/layer-demo/index.ts'),
+        react: path.resolve(__dirname, './src/react-demo/index.tsx')
     },
     output: {
         filename: '[name].js',
@@ -84,6 +85,11 @@ const config = {
             template: path.resolve(__dirname, './src/layer-demo/index.html'),
             filename: 'layer.html',
             chunks: ['layer']
+        }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, './src/react-demo/index.html'),
+            filename: 'react.html',
+            chunks: ['react']
         }),
         new Webpack.ProvidePlugin({
             $: "jquery",

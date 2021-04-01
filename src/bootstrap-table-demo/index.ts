@@ -3,6 +3,7 @@ import 'bootstrap-table/src/bootstrap-table.scss';
 import 'bootstrap-table';
 import 'bootstrap-table/dist/extensions/fixed-columns/bootstrap-table-fixed-columns.css';
 import 'bootstrap-table/dist/extensions/fixed-columns/bootstrap-table-fixed-columns';
+import 'bootstrap-table/dist/extensions/auto-refresh/bootstrap-table-auto-refresh.js';
 import 'font-awesome/css/font-awesome.css';
 // @ts-ignore
 import htmlStr from './1.html';
@@ -116,7 +117,14 @@ $('#table').bootstrapTable({
     fixedColumns: true,
     fixedNumber: 1,
     fixedRightNumber: 1,
-    url: '/api/table-data/'
+    url: '/api/table-data/',
+    autoRefresh: true,
+    autoRefreshStatus: true,
+    autoRefreshSilent: false,
+    autoRefreshInterval: 3,
+    icons: {
+        autoRefresh: 'fa fa-refresh'
+    }
 });
 
 let btn = document.getElementById('reload_btn');

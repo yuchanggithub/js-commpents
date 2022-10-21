@@ -1,2 +1,1 @@
-# js-commpents
-commpents for javascript
+# demos
